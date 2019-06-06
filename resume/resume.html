@@ -5,38 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./style.css">
+    <script src="//at.alicdn.com/t/font_1232009_atv66d0rsnj.js"></script>
+    <style type="text/css">
+        .icon {
+           width: 1em; height: 1em;
+           vertical-align: -0.15em;
+           fill: currentColor;
+           overflow: hidden;
+        }
+    </style>
     <title>My Resume</title>
 </head>
 <body>
-    <div class="topNavBar clearfix">
-        <a href="#" class="logo" alt="logo">
-            <span class="rs">RS</span><span class="card">card</span>
-        </a>
-        <nav>
-            <ul class="clearfix">
-                <li><a href="#">关于</a></li>
-                <li><a href="#">技能</a></li>
-                <li><a href="#">作品</a></li>
-                <li><a href="#">博客</a></li>
-                <li><a href="#">日历</a></li>
-                <li><a href="#">联系方式</a></li>
-            </ul>
-        </nav>
+    <div class="topNavBar">
+        <div class="topbar-inner clearfix">
+            <a href="#" class="logo" alt="logo">
+                <span class="rs">RS</span><span class="card">card</span>
+            </a>
+            <nav>
+                <ul class="clearfix">
+                    <li><a href="#">关于</a></li>
+                    <li><a href="#">技能</a></li>
+                    <li><a href="#">作品</a></li>
+                    <li><a href="#">博客</a></li>
+                    <li><a href="#">日历</a></li>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">其他</a></li>
+                </ul>
+            </nav>
+        </div>
     </div>
-    <div class="banner" style="background-image: url(https://fangyinghang.com/resume-15-2/img/rs-cover.jpg)"></div>
+    <div class="banner" style="background-image: url(./rs-cover.jpg)">
+        <div class="mask"></div>
+    </div>
     <main>
-        <div class="card">
-                <div class="picture">
-                   <img src="#" alt="avatar">
-                </div>
+        <div class="usercard clearfix">
+            <div class="textAndPicture clearfix">
+                    <div class="picture">
+                        <img src="./avatar.png" alt="avatar" width="270px" height="347" >
+                    </div>
                     <div class="text">
-                        <div class="profile">
-                            <span class="welcom">Hello</span>
+                            <span class="welcome">Hello
+                                <span class="triangle"></span>
+                            </span>
                             <h1>文莉</h1>
                             <p>前端开发工程师</p>
                             <hr>
                             <!-- description list -->
-                            <dl>
+                            <dl class="clearfix"> 
                                 <!-- description term -->
                                 <dt>年龄</dt>
                                 <!-- description definition -->
@@ -50,17 +66,30 @@
                                 <dt>到岗时间</dt>
                                 <dd>2019.10.10</dd>
                             </dl>
-                        </div>
-                        <footer class="media">
-                            <a href="#"><img src="" alt=""></a>
-                            <a href="#"><img src="" alt=""></a>
-                            <a href="#"><img src="" alt=""></a>
-                            <a href="#"><img src="" alt=""></a>
-                            <a href="#"><img src="" alt=""></a>
-                            <a href="#"><img src="" alt=""></a>
-                            <a href="#"><img src="" alt=""></a>
-                        </footer>
                     </div>
+            </div>
+            <footer class="media">
+                <a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-QQ"></use>
+                    </svg>
+                </a>
+                <a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-GitHub"></use>
+                    </svg>
+                </a>
+                <a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-twitter"></use>
+                    </svg>
+                </a>
+                <a href="#">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-weibo"></use>
+                    </svg>
+                </a>
+            </footer>    
         </div>
        <a href="" class="button" href="#">下载pdf简历</a>
 
