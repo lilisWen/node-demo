@@ -3,10 +3,6 @@ body{
     background-color: black;
     color: white;
 }
-#test{
-    font-size: 14px;
-    line-height: 30px;
-}
 a{
     color: inherit;
     /* 继承 */
