@@ -1,7 +1,7 @@
 body{
     margin: 0;
-    background-color: black;
-    color: white;
+    background-color: lightgray;
+    color: black;
 }
 a{
     color: inherit;
@@ -16,6 +16,12 @@ hr{
     height: 0;
     border: none;
     border-top: 1px solid #DEDEDE;
+}
+ul,ol{
+    list-style: none;
+}
+h1,h2,h3,h4,h6{
+    font-weight: normal;
 }
 .clearfix::after{
     content: "";
@@ -99,6 +105,7 @@ hr{
     margin-right: auto;
     background-color: #fff;
     color: black;
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.31);
 }
 .usercard .text{
     float: left;
@@ -113,8 +120,8 @@ hr{
     position: relative;
     margin-bottom: 10px;
 }
-.usercard .welcome .triangle{
-    display: block;
+.usercard .welcome::after{
+    content: "";
     width: 0;
     border: 10px solid transparent;
     border-left-color: #E6686A;
@@ -169,6 +176,155 @@ hr{
     width: 30px;
     height: 30px;
     fill: #fff;
-    /* margin:0 16px; */
     vertical-align: top;
+}
+body main{
+    margin-top: -340px;
+}
+body main .download-wrapper{
+    text-align: center;
+}
+body main .download{
+    font-size: 14px;
+    line-height: 16px;
+    padding: 21px 55px;
+    display: inline-block;
+
+    background-color: #efefef;
+    border-radius: 2px;
+    color: #3d4451;
+    font-weight: bold;
+    margin: 32px 0;   
+    transition: box-shadow 0.2s;
+}
+body main .download:hover{
+    box-shadow: 0px 5px 13px -2px rgba(0,0,0,0.4);
+}
+body main .self-introduction{
+    max-width: 930px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 18px;
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2);
+    padding: 20px 0;
+    font-family: kai;
+    border-left:5px solid #e6686a;
+    border-right:5px solid #e6686a;
+    background-color: white;
+}
+section.skills,section.protfolio{
+    max-width: 930px;
+    margin: 70px auto;
+}
+section.skills h2,section.protfolio h2{
+    text-align: center;
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 600;
+}
+section.skills .skill{
+    background-color: white;
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.31);
+    padding: 42px 50px;
+    margin-top: 30px;
+}
+section.skills .skill li{
+   float: left;
+   width: 48%;
+   margin-bottom: 20px;
+   box-sizing: border-box;
+}
+section.skills .skill li:nth-child(even){
+    float: right;
+ }
+section.skills h3{
+    font-size: 16px;
+    line-height: 1.1;
+}
+section.skills .progressbar{
+    height: 5px;
+    background-color: #FAE1E1;
+    border-radius: 2px;
+    margin-top: 10px;
+}
+section.skills .progressbar .progress{
+    content: "";
+    display: block;
+    height: 100%;
+    width: 50%;
+    background-color: #E6686A;
+    border-radius: 2px;
+}
+section.protfolio {
+    text-align: center;
+}
+section.protfolio nav{
+    margin-top: 30px;
+    display: inline-block;
+    vertical-align: top;
+}
+section.protfolio nav ol{
+    /* border: 1px solid black; */
+    display: inline-block;
+    vertical-align: top;
+}
+section.protfolio nav ol li:first-child{
+    margin-left: 0;
+}
+section.protfolio nav ol li{
+    float: left;
+    margin-left: 40px;
+    cursor: pointer;
+}
+section.protfolio nav .bar{
+    background-color: white;
+    border-radius: 2px;
+    height: 5px;
+    margin-top: 5px;
+}
+section.protfolio nav .bar .bar-inner{
+    height: 100%;
+    background-color: #E6686A;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+section.protfolio nav .bar.status1 .bar-inner{
+    margin-left: 0;
+    width: 40px;
+}
+section.protfolio nav .bar.status2 .bar-inner{
+    margin-left: 70px;
+    width: 35px;
+}
+section.protfolio nav .bar.status3 .bar-inner{
+   margin-left: 142px;
+   width: 114px;
+}
+section.protfolio .jobs{
+    margin-top: 30px;
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 597px;
+    position: relative;
+    background-color: white;
+}
+section.protfolio .jobs .big img{
+    height: 597px;
+    width: 560px;
+}
+section.protfolio .jobs .big{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+section.protfolio .jobs .small{
+    position: absolute;
+    right: 0;
+}
+section.protfolio .jobs .small img{
+    height: 288px;
+    width: 348px;
 }
