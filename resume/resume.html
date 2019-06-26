@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +9,82 @@
     <script src="//at.alicdn.com/t/font_1232009_atv66d0rsnj.js"></script>
     <style type="text/css">
         .icon {
-           width: 1em; height: 1em;
-           vertical-align: -0.15em;
-           fill: currentColor;
-           overflow: hidden;
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+
+        .site-welcome {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 10;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .site-welcome.active {
+            display: flex;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .loading {
+            width: 100px;
+            height: 100px;
+            position: relative;
+        }
+
+        .loading::before,
+        .loading::after {
+            content: "";
+            width: 0px;
+            height: 0px;
+            border-radius: 50%;
+            background: gray;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            animation: s 1.5s linear infinite;
+        }
+
+        .loading::after {
+            animation-delay: 0.7s;
+        }
+
+        @keyframes s {
+            0% {
+                width: 5px;
+                height: 5px;
+                opacity: 1;
+            }
+
+            100% {
+                width: 50px;
+                height: 50px;
+                opacity: 0;
+            }
         }
     </style>
     <title>My Resume</title>
 </head>
+
 <body>
+    <div id="sitewelcome" class="site-welcome active">
+        <div class="loading"></div>
+    </div>
     <div class="topNavBar">
         <div class="topbar-inner clearfix">
             <a href="#" class="logo" alt="logo">
@@ -41,30 +109,30 @@
     <main>
         <div class="usercard clearfix">
             <div class="textAndPicture clearfix">
-                    <div class="picture">
-                        <img src="./avatar.png" alt="avatar" width="270px" height="347" >
-                    </div>
-                    <div class="text">
-                            <span class="welcome">Hello</span>
-                            <h1>文莉</h1>
-                            <p>前端开发工程师</p>
-                            <hr>
-                            <!-- description list -->
-                            <dl class="clearfix"> 
-                                <!-- description term -->
-                                <dt>年龄</dt>
-                                <!-- description definition -->
-                                <dd>22</dd>
-                                <dt>所在城市</dt>
-                                <dd>四川成都</dd>
-                                <dt>邮箱</dt>
-                                <dd>liliswen@126.com</dd>
-                                <dt>手机号</dt>
-                                <dd>18980425481</dd>
-                                <dt>到岗时间</dt>
-                                <dd>2019.10.10</dd>
-                            </dl>
-                    </div>
+                <div class="picture">
+                    <img src="./avatar.png" alt="avatar" width="270px" height="347">
+                </div>
+                <div class="text">
+                    <span class="welcome">Hello</span>
+                    <h1>文莉</h1>
+                    <p>前端开发工程师</p>
+                    <hr>
+                    <!-- description list -->
+                    <dl class="clearfix">
+                        <!-- description term -->
+                        <dt>年龄</dt>
+                        <!-- description definition -->
+                        <dd>22</dd>
+                        <dt>所在城市</dt>
+                        <dd>四川成都</dd>
+                        <dt>邮箱</dt>
+                        <dd>liliswen@126.com</dd>
+                        <dt>手机号</dt>
+                        <dd>18980425481</dd>
+                        <dt>到岗时间</dt>
+                        <dd>2019.10.10</dd>
+                    </dl>
+                </div>
             </div>
             <footer class="media">
                 <a href="#">
@@ -87,12 +155,12 @@
                         <use xlink:href="#icon-weibo"></use>
                     </svg>
                 </a>
-            </footer>    
+            </footer>
         </div>
-        <p class="download-wrapper"> 
-             <a href="./avatar.pdf" class="download" target="_blank" download>下载pdf简历</a>
+        <p class="download-wrapper">
+            <a href="./avatar.pdf" class="download" target="_blank" download>下载pdf简历</a>
         </p>
-       
+
         <p class="self-introduction">
             文莉，四川师范大学计算机科学与技术在读生，毕业时间2020年。<br>
             技能：前端开发
@@ -100,7 +168,7 @@
     </main>
     <section class="skills">
         <h2>技能</h2>
-        <ol class="skill clearfix" >
+        <ol class="skill clearfix">
             <li>
                 <h3>HTML 5 &amp; CSS 3</h3>
                 <div class="progressbar">
@@ -139,7 +207,7 @@
             </li>
         </ol>
     </section>
-    <section class="protfolio " >
+    <section class="protfolio ">
         <h2>作品集</h2>
         <nav>
             <ol class="clearfix">
@@ -165,15 +233,19 @@
         </div>
     </section>
     <script>
-        protfolioall.onclick=function(){
+        protfolioall.onclick = function () {
             protfolioBar.className = "bar status1"
         }
-        protfolioaFramework.onclick=function(){
+        protfolioaFramework.onclick = function () {
             protfolioBar.className = "bar status2"
         }
-        protfolioaVollina.onclick=function(){
+        protfolioaVollina.onclick = function () {
             protfolioBar.className = "bar status3"
         }
     </script>
+    <script>
+        sitewelcome.classList.remove('active')
+    </script>
 </body>
+
 </html>
