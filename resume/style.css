@@ -60,7 +60,8 @@ h1,h2,h3,h4,h6{font-weight: normal;}
     display: block;
     position: relative;
 }
-.topNavBar nav>ul>li.active>a::after{
+.topNavBar nav>ul>li.active>a::after,
+.topNavBar nav>ul>li.highlight>a::after{
     content: "";
     display: block;
     position: absolute;
@@ -79,6 +80,14 @@ h1,h2,h3,h4,h6{font-weight: normal;}
         width: 100%;
     }
 }
+[mark].offset{
+    transform: translateY(200px);
+}
+[mark]{
+    transform: translateY(0);
+    transition: all 0.5s;
+}
+
 .submenu{
     display: none;
     position: absolute;
@@ -284,6 +293,7 @@ section.skills .progressbar{
     background-color: #FAE1E1;
     border-radius: 2px;
     margin-top: 10px;
+    overflow: hidden;
 }
 section.skills .progressbar .progress{
     content: "";
@@ -292,6 +302,11 @@ section.skills .progressbar .progress{
     width: 50%;
     background-color: #E6686A;
     border-radius: 2px;
+    transform: translateX(0);
+    transition: all 0.3s; 
+}
+section.skills.offset .progress{
+    transform: translateX(-100%);
 }
 section.protfolio {
     text-align: center;

@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./style.css">
     <script src="//at.alicdn.com/t/font_1232009_atv66d0rsnj.js"></script>
+    <script src="https://cdn.bootcss.com/tween.js/r14/Tween.min.js"></script>
     <style type="text/css">
         .icon {
             width: 1em;
@@ -119,7 +120,7 @@
         <div class="mask"></div>
     </div>
     <main>
-        <div id="siteAbout" class="usercard clearfix">
+        <div mark id="siteAbout" class="usercard clearfix">
             <div class="textAndPicture clearfix">
                 <div class="picture">
                     <img src="./avatar.png" alt="avatar" width="270px" height="347">
@@ -178,7 +179,7 @@
             技能：前端开发
         </p>
     </main>
-    <section id="siteSkills" class="skills">
+    <section mark id="siteSkills" class="skills">
         <h2>技能</h2>
         <ol class="skill clearfix">
             <li>
@@ -219,7 +220,7 @@
             </li>
         </ol>
     </section>
-    <section id="siteWorks" class="protfolio ">
+    <section mark id="siteWorks" class="protfolio ">
         <h2>作品集</h2>
         <nav>
             <ol class="clearfix">
@@ -257,15 +258,38 @@
         setTimeout(function () {
             sitewelcome.classList.remove('active')
         }, 2000)
-
+        let specialTags = document.querySelectorAll('[mark]')
+        for (let i = 0; i < specialTags.length; i++) {
+            specialTags[i].classList.add('offset')
+        }
+        setTimeout(function () {
+            findclose()
+        }, 2200)
         window.onscroll = function () {
             if (window.scrollY > 0) {
                 topNavBar.classList.add('sticky')
             } else {
                 topNavBar.classList.remove('sticky')
             }
+            findclose()
         }
-
+        function findclose() {
+            let specialTags = document.querySelectorAll('[mark]')
+            let minIndex = 0
+            for (let i = 1; i < specialTags.length; i++) {
+                if (Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)) {
+                    minIndex = i
+                }
+            }
+            //minIndex离窗口顶部最近的元素
+            specialTags[minIndex].classList.remove('offset')
+            let id = specialTags[minIndex].id
+            let a = document.querySelector('a[href="#' + id + '"]')
+            for (let i = 0; i < specialTags.length; i++) {
+                document.querySelector('a[href="#' + specialTags[i].id + '"]').parentNode.classList.remove('highlight')
+            }
+            a.parentNode.classList.add('highlight')
+        }
         var liTags = document.querySelectorAll('nav.menu > ul > li')
         console.log(liTags)
         for (let i = 0; i < liTags.length; i++) {
@@ -276,6 +300,11 @@
                 let li = e.currentTarget.classList.remove('active')
             }
         }
+        function animate(time) {
+            requestAnimationFrame(animate);
+            TWEEN.update(time);
+        }
+        requestAnimationFrame(animate);
 
         var aTags = document.querySelectorAll('nav.menu > ul >li >a')
         for (let i = 0; i < aTags.length; i++) {
@@ -285,9 +314,27 @@
                 let href = a.getAttribute('href')
                 let element = document.querySelector(href)
                 let top = element.offsetTop
-                window.scrollTo(0, top - 80)
+                // window.scrollTo(0, top - 80)
+
+                let currentTop = window.scrollY
+                let targetTop = top - 80
+                let s = targetTop - currentTop
+                var coords = { y: currentTop }
+                var t = Math.abs((s / 100) * 300)
+                console.log(currentTop)
+                console.log(targetTop)
+                if (t > 500) { t = 500 }
+                var tween = new TWEEN.Tween(coords)
+                    .to({ y: targetTop }, t)
+                    .easing(TWEEN.Easing.Quadratic.InOut)
+                    .onUpdate(function () {
+                        window.scrollTo(0, coords.y)
+                    })
+                    .start();
             }
         }
+
+
     </script>
 </body>
 
